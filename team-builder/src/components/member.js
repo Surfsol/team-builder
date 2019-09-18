@@ -1,9 +1,9 @@
 import React from "react";
 
-const Member = props => {
+const Members = props => {
   return (
-    <div className="member-list">
-      {props.member.map(member => (
+    <div>
+      {props.members.map(member => (
         <div className="member" key={member.id}>
           <h2>{member.name}</h2>
           <email>{member.email}</email>
@@ -14,4 +14,4 @@ const Member = props => {
   );
 };
 
-export default Member;
+export default Members;

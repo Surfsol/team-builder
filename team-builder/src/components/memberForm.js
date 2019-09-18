@@ -1,29 +1,27 @@
-import React, {useState} from 'react';
+import React, { useState } from "react";
 
 
 const MemberForm = props => {
-    const handleChanges = e =>{
-        console.log(e.target);
- 
+    console.log(`should get addNewMember from Index`, props)
         const [member, setMember] = useState({ name: "", email: "", position: "" });
 
         const handleChanges = e => {
-          console.log(note);
+          console.log(member);
           // console.log("the name", e.target.name)
           // console.log("the event target", e.target)
           //we are dynamically setting our keys.
-          // setNote({ ...note, title: e.target.value });
+          // setMember({ ...member, title: e.target.value });
           // setNote({ ...note, note: e.target.value });
           //  const nameObj={...note}
           //  nameObj[e.target.name]= e.target.value
           // setNote(nameObj)
-          setNote({ ...note, [e.target.name]: e.target.value });
+          setMember({ ...member, [e.target.name]: e.target.value });
         };
       
-        const submitForm = e => {
-          e.preventDefault();
-          props.addNewNote(note);
-          setNote({ title: "", body: "" });
+        const submitForm = e => { //put on form, below
+          e.preventDefault(); //prevent form from page refresh
+          props.addNewMember(member);
+          setMember({ title: "", email: "", position: "" });
         };
 
 return (
@@ -52,15 +50,17 @@ return (
         onChange={handleChanges}
         value={member.position}
       />
-     <button type="submit">Add Note</button>
+     <button type="submit">Add Shamer</button>
     </form>
   );
 };
-}
+
 export default MemberForm;
 
 {/*
 <label htmlFor="name"  goes with id="name"
 
 capture input - onChange={handleChanges}
+
+initial state - { name: "", email: "", position: "" }
 */}
